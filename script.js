@@ -31,3 +31,33 @@ function playRound(humanChoice,computerChoice){
 console.log(playRound("Rock", "Scissors"));
 console.log(playRound("Rock", "Paper"));
 console.log(playRound("Rock", "Rock"));
+
+function playGame(){
+    let humanScore = 0
+    let computerScore = 0
+    for(let i = 0 ; i < 5 ; i++){
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        const result=playRound(humanChoice,computerChoice);
+        console.log(result);
+
+        if(result.startsWith("You win")){
+            humanScore++;
+        }
+        else if(result.startsWith("You lose")){
+            computerScore++;
+        }
+    }
+     console.log("Final Score - You: " + humanScore + " Computer: " + computerScore);
+
+     if(humanScore>computerScore){
+        console.log("You won the game");
+
+     }else if(computerScore>humanScore){
+        console.log("Computer won the game");
+
+     }else{
+        console.log("its a tie game");
+     }
+}
+playGame();
